@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Author" content="niteshreddy">
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.2">
+  <style type="text/css">
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; color: #1d1d1d; -webkit-text-stroke: #1d1d1d; background-color: #efefef}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; color: #1d1d1d; -webkit-text-stroke: #1d1d1d; background-color: #ffffff}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; color: #1d1d1d; -webkit-text-stroke: #1d1d1d; background-color: #efefef; min-height: 16.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #1d1d1d; -webkit-text-stroke: #1d1d1d; background-color: #ffffff}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 13.0px Courier; font-kerning: none}
+    span.s3 {font: 13.0px 'Apple Symbols'; font-kerning: none}
+  </style>
+</head>
+<body>
+<h4 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #1d1d1d; -webkit-text-stroke: #1d1d1d; min-height: 22.0px"><span class="s1"></span><br></h4>
+<p class="p2"><span class="s1"># Set the working directory and verify it</span></p>
+<p class="p2"><span class="s1">setwd('/Users/Varunm/Downloads/untitled folder')</span></p>
+<p class="p2"><span class="s1">getwd()</span></p>
+<p class="p3"><span class="s1">## [1] "/Users/Varunm/Downloads/untitled folder"</span></p>
+<p class="p2"><span class="s1"># Function to install and load libraries</span></p>
+<p class="p2"><span class="s1">install_and_load &lt;- function(package) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>if (!require(package, character.only = TRUE)) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>install.packages(package, dependencies = TRUE)</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>library(package, character.only = TRUE)</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"># Load required libraries</span></p>
+<p class="p2"><span class="s1">libraries &lt;- c("dplyr", "readr", "readxl", "tidyr", "ggplot2", "BSDA", "glue")</span></p>
+<p class="p2"><span class="s1">lapply(libraries, install_and_load)</span></p>
+<p class="p3"><span class="s1">## Loading required package: dplyr</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Attaching package: 'dplyr'</span></p>
+<p class="p3"><span class="s1">## The following objects are masked from 'package:stats':</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">    </span>filter, lag</span></p>
+<p class="p3"><span class="s1">## The following objects are masked from 'package:base':</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">    </span>intersect, setdiff, setequal, union</span></p>
+<p class="p3"><span class="s1">## Loading required package: readr</span></p>
+<p class="p3"><span class="s1">## Loading required package: readxl</span></p>
+<p class="p3"><span class="s1">## Loading required package: tidyr</span></p>
+<p class="p3"><span class="s1">## Loading required package: ggplot2</span></p>
+<p class="p3"><span class="s1">## Loading required package: BSDA</span></p>
+<p class="p3"><span class="s1">## Loading required package: lattice</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Attaching package: 'BSDA'</span></p>
+<p class="p3"><span class="s1">## The following object is masked from 'package:datasets':</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">    </span>Orange</span></p>
+<p class="p3"><span class="s1">## Loading required package: glue</span></p>
+<p class="p3"><span class="s1">## [[1]]</span></p>
+<p class="p3"><span class="s1">## NULL</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## [[2]]</span></p>
+<p class="p3"><span class="s1">## NULL</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## [[3]]</span></p>
+<p class="p3"><span class="s1">## NULL</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## [[4]]</span></p>
+<p class="p3"><span class="s1">## NULL</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## [[5]]</span></p>
+<p class="p3"><span class="s1">## NULL</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## [[6]]</span></p>
+<p class="p3"><span class="s1">## NULL</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## [[7]]</span></p>
+<p class="p3"><span class="s1">## NULL</span></p>
+<p class="p2"><span class="s1"># Reading the file into R</span></p>
+<p class="p2"><span class="s1">df_ipl &lt;- read.csv("IPL_ball_by_ball_updated till 2024.csv")</span></p>
+<p class="p2"><span class="s1">salary &lt;- read_xlsx("IPL SALARIES 2024.xlsx")</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"># Load required libraries</span></p>
+<p class="p2"><span class="s1">library(dplyr)</span></p>
+<p class="p2"><span class="s1">library(readr)</span></p>
+<p class="p2"><span class="s1">library(stringr)</span></p>
+<p class="p2"><span class="s1">library(readxl)</span></p>
+<p class="p2"><span class="s1">library(ggplot2)</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"># Load datasets</span></p>
+<p class="p2"><span class="s1">ipl_bbb &lt;- read_csv('IPL_ball_by_ball_updated till 2024.csv')</span></p>
+<p class="p3"><span class="s1">## Rows: 255759 Columns: 19</span></p>
+<p class="p5"><span class="s2">## </span><span class="s1">──</span><span class="s2"> Column specification </span><span class="s1">────────────────────────────────────────────────────────</span></p>
+<p class="p3"><span class="s1">## Delimiter: ","</span></p>
+<p class="p3"><span class="s1">## chr (12): Date, Season, Batting team, Bowling team, Bowler, Striker, Non Str...</span></p>
+<p class="p3"><span class="s1">## dbl<span class="Apple-converted-space">  </span>(7): Match id, Innings No, Ball No, runs_scored, extras, score, wicket_...</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## </span><span class="s3">ℹ</span><span class="s1"> Use `spec()` to retrieve the full column specification for this data.</span></p>
+<p class="p3"><span class="s1">## </span><span class="s3">ℹ</span><span class="s1"> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></p>
+<p class="p2"><span class="s1">ipl_salary &lt;- read_excel('IPL SALARIES 2024.xlsx')</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"># Libraries and Read Data</span></p>
+<p class="p2"><span class="s1">library(dplyr)</span></p>
+<p class="p2"><span class="s1">library(readr)</span></p>
+<p class="p2"><span class="s1">library(readxl)</span></p>
+<p class="p2"><span class="s1">library(fuzzyjoin)</span></p>
+<p class="p2"><span class="s1">library(caret)</span></p>
+<p class="p2"><span class="s1">library(lmtest)</span></p>
+<p class="p3"><span class="s1">## Loading required package: zoo</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Attaching package: 'zoo'</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## The following objects are masked from 'package:base':</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">    </span>as.Date, as.Date.numeric</span></p>
+<p class="p2"><span class="s1">library(stringdist)</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Attaching package: 'stringdist'</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## The following object is masked from 'package:tidyr':</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">    </span>extract</span></p>
+<p class="p2"><span class="s1">library(stats)</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"># View columns</span></p>
+<p class="p2"><span class="s1">colnames(df_ipl)</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>[1] "Match.id"<span class="Apple-converted-space">            </span>"Date"<span class="Apple-converted-space">                </span>"Season"<span class="Apple-converted-space">             </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>[4] "Batting.team"<span class="Apple-converted-space">        </span>"Bowling.team"<span class="Apple-converted-space">        </span>"Innings.No"<span class="Apple-converted-space">         </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>[7] "Ball.No" <span class="Apple-converted-space">            </span>"Bowler"<span class="Apple-converted-space">              </span>"Striker" <span class="Apple-converted-space">           </span></span></p>
+<p class="p3"><span class="s1">## [10] "Non.Striker" <span class="Apple-converted-space">        </span>"runs_scored" <span class="Apple-converted-space">        </span>"extras"<span class="Apple-converted-space">             </span></span></p>
+<p class="p3"><span class="s1">## [13] "type.of.extras"<span class="Apple-converted-space">      </span>"score" <span class="Apple-converted-space">              </span>"score.wicket"<span class="Apple-converted-space">       </span></span></p>
+<p class="p3"><span class="s1">## [16] "wicket_confirmation" "wicket_type" <span class="Apple-converted-space">        </span>"fielders_involved" <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## [19] "Player.Out"</span></p>
+<p class="p2"><span class="s1"># Group Data</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>grouped_data &lt;- df_ipl %&gt;%</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>group_by(Season, `Innings.No`, Striker, Bowler) %&gt;%</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>summarise(runs_scored = sum(runs_scored, na.rm = TRUE),</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">              </span>wicket_confirmation = sum(wicket_confirmation, na.rm = TRUE))</span></p>
+<p class="p3"><span class="s1">## `summarise()` has grouped output by 'Season', 'Innings.No', 'Striker'. You can</span></p>
+<p class="p3"><span class="s1">## override using the `.groups` argument.</span></p>
+<p class="p2"><span class="s1"># Aggregate Data</span></p>
+<p class="p2"><span class="s1">total_runs_each_year &lt;- grouped_data %&gt;%</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>group_by(Season, Striker) %&gt;%</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>summarise(runs_scored = sum(runs_scored, na.rm = TRUE)) %&gt;%</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>ungroup()</span></p>
+<p class="p3"><span class="s1">## `summarise()` has grouped output by 'Season'. You can override using the</span></p>
+<p class="p3"><span class="s1">## `.groups` argument.</span></p>
+<p class="p2"><span class="s1">total_wicket_each_year &lt;- grouped_data %&gt;%</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>group_by(Season, Bowler) %&gt;%</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>summarise(wicket_confirmation = sum(wicket_confirmation, na.rm = TRUE)) %&gt;%</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>ungroup()</span></p>
+<p class="p3"><span class="s1">## `summarise()` has grouped output by 'Season'. You can override using the</span></p>
+<p class="p3"><span class="s1">## `.groups` argument.</span></p>
+<p class="p2"><span class="s1"># Fuzzy Matching Function</span></p>
+<p class="p2"><span class="s1">match_names &lt;- function(name, names_list) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>matches &lt;- stringdist::stringdist(name, names_list, method = "jw")</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>if(min(matches) &lt; 0.2) return(names_list[which.min(matches)]) else return(NA)</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"># Fuzzy Matching and Merging Data</span></p>
+<p class="p2"><span class="s1">df_salary &lt;- salary</span></p>
+<p class="p2"><span class="s1">df_runs &lt;- total_runs_each_year</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">df_salary$Matched_Player &lt;- sapply(df_salary$Player, match_names, df_runs$Striker)</span></p>
+<p class="p2"><span class="s1">df_merged &lt;- dplyr::left_join(df_salary, df_runs, by = c("Matched_Player" = "Striker"))</span></p>
+<p class="p3"><span class="s1">## Warning in dplyr::left_join(df_salary, df_runs, by = c(Matched_Player = "Striker")): Detected an unexpected many-to-many relationship between `x` and `y`.</span></p>
+<p class="p3"><span class="s1">## </span><span class="s3">ℹ</span><span class="s1"> Row 1 of `x` matches multiple rows in `y`.</span></p>
+<p class="p3"><span class="s1">## </span><span class="s3">ℹ</span><span class="s1"> Row 1711 of `y` matches multiple rows in `x`.</span></p>
+<p class="p3"><span class="s1">## </span><span class="s3">ℹ</span><span class="s1"> If a many-to-many relationship is expected, set `relationship =</span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">  </span>"many-to-many"` to silence this warning.</span></p>
+<p class="p2"><span class="s1"># View Unique Seasons and Data</span></p>
+<p class="p2"><span class="s1">unique(df_merged$Season)</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>[1] "2023"<span class="Apple-converted-space">    </span>"2024"<span class="Apple-converted-space">    </span>NA<span class="Apple-converted-space">        </span>"2017"<span class="Apple-converted-space">    </span>"2018"<span class="Apple-converted-space">    </span>"2019"<span class="Apple-converted-space">    </span>"2020/21"</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>[8] "2022"<span class="Apple-converted-space">    </span>"2021"<span class="Apple-converted-space">    </span>"2007/08" "2009"<span class="Apple-converted-space">    </span>"2009/10" "2011"<span class="Apple-converted-space">    </span>"2012"<span class="Apple-converted-space">   </span></span></p>
+<p class="p3"><span class="s1">## [15] "2013"<span class="Apple-converted-space">    </span>"2014"<span class="Apple-converted-space">    </span>"2015"<span class="Apple-converted-space">    </span>"2016"</span></p>
+<p class="p2"><span class="s1">head(df_merged)</span></p>
+<p class="p3"><span class="s1">## # A tibble: 6 × 8</span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">  </span>Player <span class="Apple-converted-space">    </span>Salary<span class="Apple-converted-space">    </span>Rs international iconic Matched_Player Season runs_scored</span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">  </span>&lt;chr&gt;<span class="Apple-converted-space">      </span>&lt;chr&gt;<span class="Apple-converted-space">  </span>&lt;dbl&gt; <span class="Apple-converted-space">        </span>&lt;dbl&gt; &lt;lgl&gt;<span class="Apple-converted-space">  </span>&lt;chr&gt;<span class="Apple-converted-space">          </span>&lt;chr&gt;<span class="Apple-converted-space">        </span>&lt;int&gt;</span></p>
+<p class="p3"><span class="s1">## 1 Abhishek … 20 la…<span class="Apple-converted-space">    </span>20 <span class="Apple-converted-space">            </span>0 NA <span class="Apple-converted-space">    </span>Abishek Porel<span class="Apple-converted-space">  </span>2023<span class="Apple-converted-space">            </span>33</span></p>
+<p class="p3"><span class="s1">## 2 Abhishek … 20 la…<span class="Apple-converted-space">    </span>20 <span class="Apple-converted-space">            </span>0 NA <span class="Apple-converted-space">    </span>Abishek Porel<span class="Apple-converted-space">  </span>2024 <span class="Apple-converted-space">          </span>202</span></p>
+<p class="p3"><span class="s1">## 3 Anrich No… 6.5 c… <span class="Apple-converted-space">  </span>650 <span class="Apple-converted-space">            </span>1 NA <span class="Apple-converted-space">    </span>&lt;NA&gt; <span class="Apple-converted-space">          </span>&lt;NA&gt;<span class="Apple-converted-space">            </span>NA</span></p>
+<p class="p3"><span class="s1">## 4 Axar Patel 9 cro… <span class="Apple-converted-space">  </span>900 <span class="Apple-converted-space">            </span>0 NA <span class="Apple-converted-space">    </span>&lt;NA&gt; <span class="Apple-converted-space">          </span>&lt;NA&gt;<span class="Apple-converted-space">            </span>NA</span></p>
+<p class="p3"><span class="s1">## 5 David War… 6.25 … <span class="Apple-converted-space">  </span>625 <span class="Apple-converted-space">            </span>1 NA <span class="Apple-converted-space">    </span>&lt;NA&gt; <span class="Apple-converted-space">          </span>&lt;NA&gt;<span class="Apple-converted-space">            </span>NA</span></p>
+<p class="p3"><span class="s1">## 6 Ishant Sh… 50 la…<span class="Apple-converted-space">    </span>50 <span class="Apple-converted-space">            </span>0 NA <span class="Apple-converted-space">    </span>Vivrant Sharma 2023<span class="Apple-converted-space">            </span>69</span></p>
+<p class="p2"><span class="s1"># Linear Regression with caret</span></p>
+<p class="p2"><span class="s1">X &lt;- df_merged %&gt;% select(runs_scored)</span></p>
+<p class="p2"><span class="s1">y &lt;- df_merged$Rs</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">set.seed(42)</span></p>
+<p class="p2"><span class="s1">train_index &lt;- createDataPartition(y, p = 0.8, list = FALSE)</span></p>
+<p class="p2"><span class="s1">X_train &lt;- X[train_index, ]</span></p>
+<p class="p2"><span class="s1">y_train &lt;- y[train_index]</span></p>
+<p class="p2"><span class="s1">X_test &lt;- X[-train_index, ]</span></p>
+<p class="p2"><span class="s1">y_test &lt;- y[-train_index]</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">model &lt;- train(X_train, y_train, method = "lm")</span></p>
+<p class="p3"><span class="s1">## Warning: Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Warning: Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p3"><span class="s1">## Setting row names on a tibble is deprecated.</span></p>
+<p class="p2"><span class="s1">y_pred &lt;- predict(model, X_test)</span></p>
+<p class="p2"><span class="s1">mse &lt;- mean((y_test - y_pred)^2)</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"># Linear Regression with stats</span></p>
+<p class="p2"><span class="s1">X_train_sm &lt;- cbind(1, as.matrix(X_train))</span></p>
+<p class="p2"><span class="s1">model_sm &lt;- lm(y_train ~ X_train_sm)</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"># Print summary of the linear regression model</span></p>
+<p class="p2"><span class="s1">summary(model_sm)</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Call:</span></p>
+<p class="p3"><span class="s1">## lm(formula = y_train ~ X_train_sm)</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Residuals:</span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">    </span>Min<span class="Apple-converted-space">      </span>1Q<span class="Apple-converted-space">  </span>Median<span class="Apple-converted-space">      </span>3Q <span class="Apple-converted-space">    </span>Max<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## -1214.3<span class="Apple-converted-space">  </span>-381.1<span class="Apple-converted-space">  </span>-105.2 <span class="Apple-converted-space">  </span>300.3<span class="Apple-converted-space">  </span>1371.7<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Coefficients: (1 not defined because of singularities)</span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">                      </span>Estimate Std. Error t value Pr(&gt;|t|) <span class="Apple-converted-space">   </span></span></p>
+<p class="p3"><span class="s1">## (Intercept) <span class="Apple-converted-space">          </span>401.0720<span class="Apple-converted-space">    </span>38.6255<span class="Apple-converted-space">  </span>10.384<span class="Apple-converted-space">  </span>&lt; 2e-16 ***</span></p>
+<p class="p3"><span class="s1">## X_train_sm<span class="Apple-converted-space">                  </span>NA <span class="Apple-converted-space">        </span>NA<span class="Apple-converted-space">      </span>NA <span class="Apple-converted-space">      </span>NA <span class="Apple-converted-space">   </span></span></p>
+<p class="p3"><span class="s1">## X_train_smruns_scored <span class="Apple-converted-space">  </span>1.3786 <span class="Apple-converted-space">    </span>0.1617 <span class="Apple-converted-space">  </span>8.527 1.03e-15 ***</span></p>
+<p class="p3"><span class="s1">## ---</span></p>
+<p class="p3"><span class="s1">## Signif. codes:<span class="Apple-converted-space">  </span>0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Residual standard error: 499.1 on 274 degrees of freedom</span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">  </span>(69 observations deleted due to missingness)</span></p>
+<p class="p3"><span class="s1">## Multiple R-squared:<span class="Apple-converted-space">  </span>0.2097, Adjusted R-squared:<span class="Apple-converted-space">  </span>0.2068<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## F-statistic: 72.71 on 1 and 274 DF,<span class="Apple-converted-space">  </span>p-value: 1.028e-15</span></p>
+<p class="p2"><span class="s1"># Repeat for Wickets</span></p>
+<p class="p2"><span class="s1">df_runs &lt;- total_wicket_each_year</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">df_salary$Matched_Player &lt;- sapply(df_salary$Player, match_names, df_runs$Bowler)</span></p>
+<p class="p2"><span class="s1">df_merged &lt;- dplyr::left_join(df_salary, df_runs, by = c("Matched_Player" = "Bowler"))</span></p>
+<p class="p3"><span class="s1">## Warning in dplyr::left_join(df_salary, df_runs, by = c(Matched_Player = "Bowler")): Detected an unexpected many-to-many relationship between `x` and `y`.</span></p>
+<p class="p3"><span class="s1">## </span><span class="s3">ℹ</span><span class="s1"> Row 6 of `x` matches multiple rows in `y`.</span></p>
+<p class="p3"><span class="s1">## </span><span class="s3">ℹ</span><span class="s1"> Row 1267 of `y` matches multiple rows in `x`.</span></p>
+<p class="p3"><span class="s1">## </span><span class="s3">ℹ</span><span class="s1"> If a many-to-many relationship is expected, set `relationship =</span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">  </span>"many-to-many"` to silence this warning.</span></p>
+<p class="p2"><span class="s1">df_merged[df_merged$wicket_confirmation &gt; 10, ]</span></p>
+<p class="p3"><span class="s1">## # A tibble: 190 × 8</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">    </span>Player<span class="Apple-converted-space">        </span>Salary <span class="Apple-converted-space">    </span>Rs international iconic Matched_Player Season</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">    </span>&lt;chr&gt; <span class="Apple-converted-space">        </span>&lt;chr&gt; <span class="Apple-converted-space">  </span>&lt;dbl&gt; <span class="Apple-converted-space">        </span>&lt;dbl&gt; &lt;lgl&gt;<span class="Apple-converted-space">  </span>&lt;chr&gt;<span class="Apple-converted-space">          </span>&lt;chr&gt;<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>1 &lt;NA&gt;<span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space">      </span>NA<span class="Apple-converted-space">            </span>NA NA <span class="Apple-converted-space">    </span>&lt;NA&gt; <span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>2 &lt;NA&gt;<span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space">      </span>NA<span class="Apple-converted-space">            </span>NA NA <span class="Apple-converted-space">    </span>&lt;NA&gt; <span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>3 &lt;NA&gt;<span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space">      </span>NA<span class="Apple-converted-space">            </span>NA NA <span class="Apple-converted-space">    </span>&lt;NA&gt; <span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>4 &lt;NA&gt;<span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space">      </span>NA<span class="Apple-converted-space">            </span>NA NA <span class="Apple-converted-space">    </span>&lt;NA&gt; <span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>5 Kuldeep Yadav 2 crore <span class="Apple-converted-space">  </span>200 <span class="Apple-converted-space">            </span>0 NA <span class="Apple-converted-space">    </span>Kuldeep Yadav<span class="Apple-converted-space">  </span>2017 <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>6 Kuldeep Yadav 2 crore <span class="Apple-converted-space">  </span>200 <span class="Apple-converted-space">            </span>0 NA <span class="Apple-converted-space">    </span>Kuldeep Yadav<span class="Apple-converted-space">  </span>2018 <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>7 Kuldeep Yadav 2 crore <span class="Apple-converted-space">  </span>200 <span class="Apple-converted-space">            </span>0 NA <span class="Apple-converted-space">    </span>Kuldeep Yadav<span class="Apple-converted-space">  </span>2022 <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>8 Kuldeep Yadav 2 crore <span class="Apple-converted-space">  </span>200 <span class="Apple-converted-space">            </span>0 NA <span class="Apple-converted-space">    </span>Kuldeep Yadav<span class="Apple-converted-space">  </span>2024 <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space">  </span>9 &lt;NA&gt;<span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space">      </span>NA<span class="Apple-converted-space">            </span>NA NA <span class="Apple-converted-space">    </span>&lt;NA&gt; <span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## 10 &lt;NA&gt;<span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space">      </span>NA<span class="Apple-converted-space">            </span>NA NA <span class="Apple-converted-space">    </span>&lt;NA&gt; <span class="Apple-converted-space">          </span>&lt;NA&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## # </span><span class="s3">ℹ</span><span class="s1"> 180 more rows</span></p>
+<p class="p3"><span class="s1">## # </span><span class="s3">ℹ</span><span class="s1"> 1 more variable: wicket_confirmation &lt;int&gt;</span></p>
+<p class="p2"><span class="s1"># Subset Data for a Specific Season</span></p>
+<p class="p2"><span class="s1">df_merged &lt;- df_merged %&gt;% filter(Season %in% c('2022'))</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"># Linear Regression on Wickets with stats</span></p>
+<p class="p2"><span class="s1">X &lt;- df_merged %&gt;% select(wicket_confirmation)</span></p>
+<p class="p2"><span class="s1">y &lt;- df_merged$Rs</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">set.seed(42)</span></p>
+<p class="p2"><span class="s1">train_index &lt;- createDataPartition(y, p = 0.8, list = FALSE)</span></p>
+<p class="p2"><span class="s1">X_train &lt;- X[train_index, ]</span></p>
+<p class="p2"><span class="s1">y_train &lt;- y[train_index]</span></p>
+<p class="p2"><span class="s1">X_test &lt;- X[-train_index, ]</span></p>
+<p class="p2"><span class="s1">y_test &lt;- y[-train_index]</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">X_train_sm &lt;- cbind(1, as.matrix(X_train))</span></p>
+<p class="p2"><span class="s1">model_sm &lt;- lm(y_train ~ X_train_sm - 1)</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"># Print summary of the linear regression model</span></p>
+<p class="p2"><span class="s1">summary(model_sm)</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Call:</span></p>
+<p class="p3"><span class="s1">## lm(formula = y_train ~ X_train_sm - 1)</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Residuals:</span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">    </span>Min<span class="Apple-converted-space">      </span>1Q<span class="Apple-converted-space">  </span>Median<span class="Apple-converted-space">      </span>3Q <span class="Apple-converted-space">    </span>Max<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## -514.11 -217.37<span class="Apple-converted-space">  </span>-49.73<span class="Apple-converted-space">  </span>139.58<span class="Apple-converted-space">  </span>881.50<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Coefficients:</span></p>
+<p class="p3"><span class="s1">## <span class="Apple-converted-space">                              </span>Estimate Std. Error t value Pr(&gt;|t|) <span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## X_train_sm <span class="Apple-converted-space">                    </span>196.581 <span class="Apple-converted-space">    </span>97.106 <span class="Apple-converted-space">  </span>2.024 <span class="Apple-converted-space">  </span>0.0522 .</span></p>
+<p class="p3"><span class="s1">## X_train_smwicket_confirmation <span class="Apple-converted-space">  </span>21.096<span class="Apple-converted-space">      </span>8.659 <span class="Apple-converted-space">  </span>2.436 <span class="Apple-converted-space">  </span>0.0212 *</span></p>
+<p class="p3"><span class="s1">## ---</span></p>
+<p class="p3"><span class="s1">## Signif. codes:<span class="Apple-converted-space">  </span>0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></p>
+<p class="p3"><span class="s1">##<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## Residual standard error: 357.2 on 29 degrees of freedom</span></p>
+<p class="p3"><span class="s1">## Multiple R-squared:<span class="Apple-converted-space">  </span>0.5795, Adjusted R-squared:<span class="Apple-converted-space">  </span>0.5505<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1">## F-statistic: 19.98 on 2 and 29 DF,<span class="Apple-converted-space">  </span>p-value: 3.507e-06</span></p>
+</body>
+</html>
